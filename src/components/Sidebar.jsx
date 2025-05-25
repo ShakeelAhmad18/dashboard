@@ -13,25 +13,63 @@ import {
   FiSettings,
   FiLayers,
 } from "react-icons/fi";
+import { useLocation, useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Sidebar = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [activeItem, setActiveItem] = React.useState("Dashboard");
+  const location =useLocation();
+
+
 
   const menuItems = [
-    { name: "Dashboard", icon: <FiHome size={18} /> },
-    { name: "Staff", icon: <FiUsers size={18} /> },
-    { name: "Payment Voucher", icon: <FiDollarSign size={18} /> },
-    { name: "Payroll", icon: <FiFileText size={18} /> },
-    { name: "Memo", icon: <FiMail size={18} /> },
-    { name: "Circulars", icon: <FiBook size={18} /> },
-    { name: "Maintenance", icon: <FiSettings size={18} /> },
-    { name: "Logistics", icon: <FiTruck size={18} /> },
-    { name: "Office Budget", icon: <FiPieChart size={18} /> },
-    { name: "Stocks and Inventory", icon: <FiLayers size={18} /> },
-    { name: "Notifications", icon: <FiBell size={18} /> },
-    { name: "Capacity Building", icon: <FiUsers size={18} /> },
-    { name: "Procurements", icon: <FiShoppingBag size={18} /> },
+    { name: "Dashboard", icon: <FiHome size={18} />, path: "/" }, // Add paths
+    { name: "Staff", icon: <FiUsers size={18} />, path: "/staff" },
+    {
+      name: "Payment Voucher",
+      icon: <FiDollarSign size={18} />,
+      path: "/payment-voucher",
+    },
+    { name: "Payroll", icon: <FiFileText size={18} />, path: "/payroll" },
+    { name: "Memo", icon: <FiMail size={18} />, path: "/memo" },
+    { name: "Circulars", icon: <FiBook size={18} />, path: "/circulars" },
+    {
+      name: "Maintenance",
+      icon: <FiSettings size={18} />,
+      path: "/maintenance",
+    },
+    { name: "Logistics", icon: <FiTruck size={18} />, path: "/logistics" },
+    {
+      name: "Office Budget",
+      icon: <FiPieChart size={18} />,
+      path: "/office-budget",
+    },
+    {
+      name: "Stocks and Inventory",
+      icon: <FiLayers size={18} />,
+      path: "/stocks-and-inventory",
+    },
+    {
+      name: "Notifications",
+      icon: <FiBell size={18} />,
+      path: "/notifications",
+    },
+    {
+      name: "Capacity Building",
+      icon: <FiUsers size={18} />,
+      path: "/capacity-building",
+    },
+    {
+      name: "Procurements",
+      icon: <FiShoppingBag size={18} />,
+      path: "/procurements",
+    },
   ];
+
+  const handleClick = (path, name) => {
+    setActiveItem(name); // Update active item
+    navigate(path); // Navigate to the specified path
+  };
 
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
@@ -49,16 +87,17 @@ const Sidebar = () => {
           {menuItems.map((item) => (
             <li key={item.name}>
               <button
-                onClick={() => setActiveItem(item.name)}
+                onClick={() => handleClick(item.path, item.name)}
                 className={`w-full flex items-center px-3 py-2 text-sm rounded-md transition-all duration-200 relative
                   ${
-                    activeItem === item.name
+                    location.pathname === item.path || activeItem === item.name
                       ? "text-blue-600 font-medium bg-blue-50"
                       : "text-gray-700 hover:bg-gray-100"
                   }`}
               >
                 {/* Active item indicator */}
-                {activeItem === item.name && (
+                {(location.pathname === item.path ||
+                  activeItem === item.name) && (
                   <div className="absolute left-0 top-0 h-full w-1 bg-blue-600 rounded-r-md transition-all duration-300"></div>
                 )}
                 <span className="mr-3 transition-transform duration-200 group-hover:scale-110">

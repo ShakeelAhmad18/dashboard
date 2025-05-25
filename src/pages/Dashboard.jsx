@@ -5,9 +5,14 @@ import Sidebar from "../components/Sidebar";
 import DualTableLayout from "../components/DualTableLayout";
 import PayStateLayout from "../components/PayStateLayout";
 import StatCard from "../components/StatCard";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location=useLocation();
+  const isDashboardPage = location.pathname === "/";
+
+ 
 
   // Close sidebar when clicking on overlay
   const closeSidebar = () => {
@@ -55,8 +60,10 @@ const Dashboard = () => {
 
         {/* Main Content Area */}
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 bg-[#F8F9FD]">
+         {isDashboardPage ? <>
           {/* Stats Cards with animation */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
             <StatCard
               icon={<FiUsers className="text-blue-500" size={24} />}
               title="Total number of staff"
@@ -91,7 +98,7 @@ const Dashboard = () => {
 
           {/* Staff Applications Card and state card*/}
           <PayStateLayout />
-
+         </> : <Outlet/>}
           {/* Footer */}
           <footer className="text-center text-sm text-gray-500 py-4">
             Copyright © 2022 Rifus Energy. All Rights Reserved
