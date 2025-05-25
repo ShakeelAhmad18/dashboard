@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+html {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Add to your global CSS file */
+@media (max-width: 1023px) {
+    .lg\:hidden + .flex .flex-col .flex-1 .overflow-hidden .bg-\[\#F8F9FD\] .flex .items-center div {
+      display: block !important;
+    }
+  }
+  
+  /* Ensure welcome message is visible on mobile */
+  @media (max-width: 767px) {
+    .text-xl.font-bold.text-gray-900,
+    .text-sm.text-gray-500 {
+      display: block !important;
+    }
+  }
+
+
+  /* In your global CSS file */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
