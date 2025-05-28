@@ -34,18 +34,17 @@ const PaymentVoucher = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="bg-white rounded-lg p-6 shadow mb-6">
+      <div className="bg-white rounded-lg p-4 sm:p-6 shadow mb-6">
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-center justify-between">
           {/* Count display - centered with text below */}
           <div className="flex flex-col items-center justify-center w-full md:w-1/6">
             <div className="text-xl font-semibold text-black">150</div>
-            <div className="text-sm font-normal text-black">
+            <div className="text-sm font-normal text-black text-center">
               Total payment voucher
             </div>
           </div>
-
           {/* Filter and button - aligned to end */}
-          <div className="w-full md:w-1/2 flex items-center justify-end gap-4">
+          <div className="w-full md:w-1/2 flex flex-col sm:flex-row items-center justify-end gap-3 sm:gap-4">
             <div className="relative w-full">
               <label className="block text-sm text-black mb-1">
                 Filter payment voucher
@@ -65,10 +64,10 @@ const PaymentVoucher = () => {
                 size={16}
               />
             </div>
-            <Link to="/create-payment-voucher">
+            <Link to="/create-payment-voucher" className="w-full sm:w-auto">
               <button
                 type="button"
-                className="px-8 py-2 bg-gradient-to-r from-[#384295] to-[#14ADD6] text-white font-medium mt-5 rounded-lg shadow-md hover:shadow-lg transition-all whitespace-nowrap"
+                className="px-4 sm:px-8 py-2 bg-gradient-to-r from-[#384295] to-[#14ADD6] text-white font-medium mt-5 rounded-lg shadow-md hover:shadow-lg transition-all whitespace-nowrap w-full"
               >
                 Create Payment Voucher
               </button>
