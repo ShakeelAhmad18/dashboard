@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { IoIosCheckmarkCircle } from "react-icons/io";
 
 const BudgetSuccessModal = ({ show, onClose }) => {
   if (!show) return null;
