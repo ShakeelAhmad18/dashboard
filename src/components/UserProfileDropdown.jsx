@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { FiUser, FiSettings, FiLogOut, FiChevronDown } from "react-icons/fi";
 import { FaBell } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const UserProfileDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,13 +79,13 @@ const UserProfileDropdown = () => {
             <FiSettings className="mr-2 h-4 w-4" />
             Settings
           </a>
-          <a
-            href="#"
+          <Link
+            to="/login"
             className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 border-t border-gray-100 transition-colors duration-150"
           >
             <FiLogOut className="mr-2 h-4 w-4" />
             Logout
-          </a>
+          </Link>
         </div>
       )}
     </div>

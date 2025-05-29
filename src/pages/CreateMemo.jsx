@@ -10,7 +10,6 @@ const CreateMemo = () => {
         <h1 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">
           Create Memo
         </h1>
-
         <form className="space-y-4 md:space-y-6">
           {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">

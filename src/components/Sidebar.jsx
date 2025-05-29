@@ -1,4 +1,12 @@
 import React from "react";
+import { MdReceiptLong } from "react-icons/md";
+import { TbTimeline } from "react-icons/tb";
+import { BsPatchCheckFill } from "react-icons/bs";
+import { MdOutlineEventAvailable } from "react-icons/md";
+import { BsQrCodeScan } from "react-icons/bs";
+import { LiaShuttleVanSolid } from "react-icons/lia";
+import { LuMessageCircleMore } from "react-icons/lu";
+
 import {
   FiHome,
   FiUsers,
@@ -64,7 +72,43 @@ const Sidebar = () => {
       icon: <FiShoppingBag size={18} />,
       path: "/procurements",
     },
+    {
+      name: "Tax Management",
+      icon: <MdReceiptLong size={18} />,
+      path: "/tax-management",
+    },
+    {
+      name: "Project Management",
+      icon: <TbTimeline size={18} />,
+      path: "/project-management",
+    },
+    {
+      name: "Quality Assurance",
+      icon: <BsPatchCheckFill size={18} />,
+      path: "/quality-asurance",
+    },
+    {
+      name: "Meeting Management",
+      icon: <MdOutlineEventAvailable size={18} />,
+      path: "/meeting-management",
+    },
+    {
+      name: "Barcode/QR Scanning",
+      icon: <BsQrCodeScan size={18} />,
+      path: "/Barcode-QR-Scanning",
+    },
+    {
+      name: "Internal Messages",
+      icon: <LuMessageCircleMore size={18} />,
+      path: "/messages",
+    },
+    {
+      name: "Vehicle Fleet Management",
+      icon: <LiaShuttleVanSolid size={18} />,
+      path: "/vehicle-management",
+    },
   ];
+
 
   const handleClick = (path, name) => {
     setActiveItem(name); // Update active item
